@@ -20,8 +20,10 @@
 	Uncompress and copy the cudnn files into the toolkit directory. 
     Assuming the toolkit is installed in /usr/local/cuda
 > $ tar xvzf cudnn-6.5-linux-x64-v2.tgz
-> $ sudo cp cudnn-6.5-linux-x64-v2/cudnn.h /usr/local/cuda/include
-> $ sudo cp cudnn-6.5-linux-x64-v2/libcudnn* /usr/local/cuda/lib6
+
+	> $ sudo cp cudnn-6.5-linux-x64-v2/cudnn.h /usr/local/cuda/include
+
+	> $ sudo cp cudnn-6.5-linux-x64-v2/libcudnn* /usr/local/cuda/lib6
 
 
 -----
