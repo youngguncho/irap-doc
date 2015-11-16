@@ -19,11 +19,9 @@
 	우선 Cuda와 달리 Cudnn은 nvidia-developer에 가입 후 승인을 받아야 다운로드가 가능하다.
 	Uncompress and copy the cudnn files into the toolkit directory. 
     Assuming the toolkit is installed in /usr/local/cuda
-> $ tar xvzf cudnn-6.5-linux-x64-v2.tgz
-
-	> $ sudo cp cudnn-6.5-linux-x64-v2/cudnn.h /usr/local/cuda/include
-
-	> $ sudo cp cudnn-6.5-linux-x64-v2/libcudnn* /usr/local/cuda/lib6
+> $ tar xvzf cudnn-6.5-linux-x64-v2.tgz<br />
+> $ sudo cp cudnn-6.5-linux-x64-v2/cudnn.h /usr/local/cuda/include<br />
+> $ sudo cp cudnn-6.5-linux-x64-v2/libcudnn* /usr/local/cuda/lib6
 
 
 -----
@@ -31,18 +29,18 @@
 Tensorflow는 cmake가 아닌 Bazel로 컴파일하기 때문에 우선 Bazel을 설치해야 한다. 
 
 1. Install JDK8
-> $ sudo add-apt-repository ppa:webupd8team/java
-> $ sudo apt-get update
+> $ sudo add-apt-repository ppa:webupd8team/java <br />
+> $ sudo apt-get update<br />
 > $ sudo apt-get install oracle-java8-installer
 
 2. Install Bazel
-> $ git clone https://github.com/bazelbuild/bazel.git
-> $ cd bazel
-> $ git checkout tags/0.1.0
+> $ git clone https://github.com/bazelbuild/bazel.git <br />
+> $ cd bazel <br />
+> $ git checkout tags/0.1.0 <br />
 > $ ./compile.sh
 
 3. Install other dependencies
-> $ sudo apt-get install python-numpy swig python-dev
+> $ sudo apt-get install python-numpy swig python-dev <br />
 
 -----
     
@@ -51,7 +49,7 @@ Tensorflow는 cmake가 아닌 Bazel로 컴파일하기 때문에 우선 Bazel을
     
 1. Set environment
 새로운 Command창에서 아래의 명령들을 수행한다.
-> $ export PATH="$PATH:/home/yg/devel/bazel/output"
+> $ export PATH="$PATH:/home/yg/devel/bazel/output" <br />
 
 	/home/yg/devel/bazel/output 대신 본인의 경로 입력
     
@@ -61,11 +59,11 @@ Tensorflow는 cmake가 아닌 Bazel로 컴파일하기 때문에 우선 Bazel을
 3. Configure TensorFlow's canonical view of Cuda libraries (TensorFlow root directory에서)
 > $ ./configure 
 	
-	>Setting up Cuda include
-	Setting up Cuda lib64
-	Setting up Cuda bin
-	Setting up Cuda nvvm
-	Configuration finished
+	>Setting up Cuda include <br />
+	Setting up Cuda lib64 <br />
+	Setting up Cuda bin <br />
+	Setting up Cuda nvvm <br />
+	Configuration finished <br />
     
 
 4. (optional) GPU campatibility 3.0 이하버전에 대해서
@@ -83,36 +81,36 @@ Tensorflow는 cmake가 아닌 Bazel로 컴파일하기 때문에 우선 Bazel을
 
 5. Build your target with GPU support.
 Bazel을 Download한 Root directory에서 아래의 명령을 수행
-> $ bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer
+> $ bazel build -c opt --config=cuda //tensorflow/cc:tutorials_example_trainer <br />
 > $ bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu
 
 6. Create pip package and install
-> $ bazel build -c opt //tensorflow/tools/pip_package:build_pip_package
-> $ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+> $ bazel build -c opt //tensorflow/tools/pip_package:build_pip_package <br />
+> $ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg <br />
 > $ sudo pip install /tmp/tensorflow_pkg/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
 
 -----
 ## Test Tensorflow
 ### Train your first TensorFlow neural net model
-> $ python tensorflow/models/image/mnist/convolutional.py
-> Succesfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
-Succesfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
-Succesfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
-Succesfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
-Extracting data/train-images-idx3-ubyte.gz
-Extracting data/train-labels-idx1-ubyte.gz
-Extracting data/t10k-images-idx3-ubyte.gz
-Extracting data/t10k-labels-idx1-ubyte.gz
-Initialized!
-Epoch 0.00
-Minibatch loss: 12.054, learning rate: 0.010000
-Minibatch error: 90.6%
-Validation error: 84.6%
-Epoch 0.12
-Minibatch loss: 3.285, learning rate: 0.010000
-Minibatch error: 6.2%
-Validation error: 7.0%
-...
+> $ python tensorflow/models/image/mnist/convolutional.py <br />
+> Succesfully downloaded train-images-idx3-ubyte.gz 9912422 bytes. <br />
+Succesfully downloaded train-labels-idx1-ubyte.gz 28881 bytes. <br />
+Succesfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes. 
+Succesfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.<br />
+Extracting data/train-images-idx3-ubyte.gz<br />
+Extracting data/train-labels-idx1-ubyte.gz<br />
+Extracting data/t10k-images-idx3-ubyte.gz<br />
+Extracting data/t10k-labels-idx1-ubyte.gz<br />
+Initialized!<br />
+Epoch 0.00<br />
+Minibatch loss: 12.054, learning rate: 0.010000<br />
+Minibatch error: 90.6%<br />
+Validation error: 84.6%<br />
+Epoch 0.12<br />
+Minibatch loss: 3.285, learning rate: 0.010000<br />
+Minibatch error: 6.2%<br />
+Validation error: 7.0%<br />
+...<br />
 ...
 
 위와 같이 training을 시작하면 Tensorflow가 올바르게 설치된 것
