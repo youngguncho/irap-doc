@@ -1,5 +1,7 @@
 설치 환경: Ubuntu 14.04.3 64bit 
+
 참고: http://www.tensorflow.org/get_started/os_setup.md#installing_from_sources/
+
 작성자: Younggun Cho(yg.b.cho@gmail.com) / YoungSik Shin(bluevow@gmail.com)
 
 # Installation from source
