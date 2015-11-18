@@ -4,9 +4,9 @@
 
 작성자: Younggun Cho(yg.b.cho@gmail.com) / YoungSik Shin(bluevow@gmail.com)
 
-Tensorflow.org에서는 Binary와 Docker, 그리고 Source에서 설치하는 세가지 방법을 소개하는데 아래의 방법은 Source에서 Install하는 방법을 정리한 내용입니다. 
-설치 순서는 CUDA, CUDNN -> Bazel -> Tensorflow 이며 기본적으로 Tensorflow.org의 방법에서 순서를 조금 바꾸어 정리하였습니다. 
-대게 terminal에서 명령을 수행했을때 permission과 같은 error message가 뜨면 명령을 sudo 권한으로 (명령어 맨 앞에 sudo 를 붙여서) 실행하시길 권장합니다. 
+Tensorflow.org에서는 Binary와 Docker, 그리고 Source에서 설치하는 세가지 방법을 소개하는데 아래의 방법은 Source에서 Install하는 방법을 정리한 내용입니다. <br />
+설치 순서는 CUDA, CUDNN -> Bazel -> Tensorflow 이며 기본적으로 Tensorflow.org의 방법에서 순서를 조금 바꾸어 정리하였습니다. <br />
+대게 terminal에서 명령을 수행했을때 permission과 같은 error message가 뜨면 명령을 sudo 권한으로 (명령어 맨 앞에 sudo 를 붙여서) 실행하시길 권장합니다. <br />
 Bazel과 Tensorflow의 Root directory는 각각 git clone으로 생성된 <Your_directory/Bazel>, <Your_directory/Tensorflow> 폴더를 의미합니다.
 
 # Installation from source
