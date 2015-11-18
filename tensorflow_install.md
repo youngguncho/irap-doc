@@ -6,6 +6,8 @@
 
 Tensorflow.org에서는 Binary와 Docker, 그리고 Source에서 설치하는 세가지 방법을 소개하는데 아래의 방법은 Source에서 Install하는 방법을 정리한 내용입니다. 
 설치 순서는 CUDA, CUDNN -> Bazel -> Tensorflow 이며 기본적으로 Tensorflow.org의 방법에서 순서를 조금 바꾸어 정리하였습니다. 
+대게 terminal에서 명령을 수행했을때 permission과 같은 error message가 뜨면 명령을 sudo 권한으로 (명령어 맨 앞에 sudo 를 붙여서) 실행하시길 권장합니다. 
+Bazel과 Tensorflow의 Root directory는 각각 git clone으로 생성된 <Your_directory/Bazel>, <Your_directory/Tensorflow> 폴더를 의미합니다.
 
 # Installation from source
 
@@ -31,7 +33,7 @@ Tensorflow.org에서는 Binary와 Docker, 그리고 Source에서 설치하는 �
 ## Bazel 설치
 Tensorflow는 cmake가 아닌 Bazel로 컴파일하기 때문에 우선 Bazel을 설치해야 한다. 
 
-1. Install JDK8
+1. Install JDK8 (이미 Java 8을 설치한 경우에는 Pass)
 > $ sudo add-apt-repository ppa:webupd8team/java <br />
 > $ sudo apt-get update<br />
 > $ sudo apt-get install oracle-java8-installer
