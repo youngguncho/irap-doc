@@ -1,8 +1,11 @@
-설치 환경: Ubuntu 14.04.3 64bit 
+설치 환경: Ubuntu 14.04.3 64bit / Nvidia GTX 760 / Cuda 7.0
 
 참고: http://www.tensorflow.org/get_started/os_setup.md#installing_from_sources/
 
 작성자: Younggun Cho(yg.b.cho@gmail.com) / YoungSik Shin(bluevow@gmail.com)
+
+Tensorflow.org에서는 Binary와 Docker, 그리고 Source에서 설치하는 세가지 방법을 소개하는데 아래의 방법은 Source에서 Install하는 방법을 정리한 내용입니다. 
+설치 순서는 CUDA, CUDNN -> Bazel -> Tensorflow 이며 기본적으로 Tensorflow.org의 방법에서 순서를 조금 바꾸어 정리하였습니다. 
 
 # Installation from source
 
@@ -85,7 +88,7 @@ Bazel을 Download한 Root directory에서 아래의 명령을 수행
 > $ bazel-bin/tensorflow/cc/tutorials_example_trainer --use_gpu
 
 6. Create pip package and install
-> $ bazel build -c opt //tensorflow/tools/pip_package:build_pip_package <br />
+> $ bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package <br />
 > $ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg <br />
 > $ sudo pip install /tmp/tensorflow_pkg/tensorflow-0.5.0-cp27-none-linux_x86_64.whl
 
