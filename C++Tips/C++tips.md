@@ -54,3 +54,22 @@ ExClass::ExClass(const ExClass& src)
 }
 ```
 위와 같은 복제 생성자의 경우 mString(src.mString)에서는 복제 생성자가 호출되지만 mVar=src.mVar에서는 복제생성자가 아니라 대입연산자가 생성. constructor initilizer에서 빠진 부분에 대해서는 컴파일러가 디폴트 생성자를 호출해서 이미 mVar는 메모리에 할당이 된 상태이므로 {}블럭 내에서는 대입연산이 이루어짐.
+
+## 복제생성자와 대입연산자를 위한 루틴 예제
+266페이지
+
+## 메소드의 종류
+
+* static method
+* const method
+* mutable 멤버변수
+* inline method
+
+## friend 속성
+
+286페이지
+
+## 연산자 오버로딩(operator)
+
+* 묵시적형변환을 막아주기 위해 explicit 키워드 사용 가능
+* protected되어 있는 멤버가 있는 경우 연산자가 클래스간에 동작하기 위해서는 friend키워드 필요(292 페이지)
