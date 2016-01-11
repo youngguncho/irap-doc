@@ -17,7 +17,7 @@
 ExClass::ExClass():mVar(1),mString("") {
 }
 ```
-_ **constructor initilizer는 멤버를 초기화할 때 위의 순서대로 초기화 되는것이 아니라 class 정의에서 등장하는 순서로 초기화 됨** _
+*constructor initilizer는 멤버를 초기화할 때 위의 순서대로 초기화 되는것이 아니라 class 정의에서 등장하는 순서로 초기화 됨*
 
 ### constructor initilizer로만 멤버 초기화가 가능한 경우
 1. const 멤버 변수 : const 변수는 한번 생성된 이후에 값을 변경할 수 없어 변수 생성시점에 초기화
