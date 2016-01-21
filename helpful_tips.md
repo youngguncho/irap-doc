@@ -40,7 +40,7 @@ top은 multi thread 의 경우에도 thread 별 track 이 가능합니다.
 
 ```{.no-highlight}
 sudo service lightdm stop
-sudo add-apt-repository ppa:mamarley/nvidia
+sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
 sudo apt-get install nvidia-352 
 ```
