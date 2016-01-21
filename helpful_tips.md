@@ -35,3 +35,12 @@ sudo apt-get install indicator-multiload
 _추가적으로 덧붙이면_
 나중에 gui가 어려운 경우에는 **top** 이라는 명령을 사용하시면 됩니다.
 top은 multi thread 의 경우에도 thread 별 track 이 가능합니다.
+
+## alienware graphic card
+
+```{.no-highlight}
+sudo service lightdm stop
+sudo add-apt-repository ppa:mamarley/nvidia
+sudo apt-get update
+sudo apt-get install nvidia-352 
+```
