@@ -59,8 +59,6 @@ Preferences -> Package Settings -> YcmdCompletion -> Settings - Default 클릭 �
     "HMAC": "위에서 생성한 HMAC key",
     "use_auto_start_localserver": 1,
 	"ycmd_path": "/home/USERNAME/ycmd/ycmd",
-    "default_settings_path":"/home/yshin/ycmd/ycmd/default_settings.json",
-    "python_binary_path": "/usr/bin/python",
     "languages": ["cpp", "python"],
 }
 ```
@@ -78,11 +76,34 @@ Preferences -> Settings - More -> Syntax Specific - User 클릭 후 C++.sublime-
 }
 ```
 
-- Cmake에서 Sublime project 생성하기
+- Sublime project 생성하기
+	- CMake를 이용하는 방법
 ```
 $ cd build
 $ cmake . -G "Sublime Text 2 - Unix Makefiles"
 ```
+	- CMakeLists.txt를 이용하는 방법
+project의 root의 CMakeLists.txt에 다음 항목 추가
+```
+set(CMAKE_EXPORT_COMPILE_COMMANDS "ON")
+set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
+set(CMAKE_EXTRA_GENERATOR "Sublime Text 2" CACHE INTERNAL "" FORCE)
+```
+
+- Ycmd default_settings.json 파일 설정
+위에서 복제한 ycmd server directory에서 default_settings.json 파일 내용 중 아래 부분 변경
+```
+  "global_ycm_extra_conf": "/home/ycmd/ycmd/.ycm_extra_conf.py",
+  "confirm_extra_conf": 0,
+  "hmac_secret": "위의 HMAC key 입력",
+```
+
+- [.ycm_extra_conf.py](https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py) 파일 설정하기
+	- gobal ycm_conf 설정 : ycmd server의 default_settings.json 파일의 "global_ycm_extra_conf" 설정 경로에 위 링크 파일 복사
+	- local ycm_conf 설정 : 해당 프로젝트의 root에 .ycmd_extra_conf.py복사 후 compilation_database_folder 값을 아래와 같이 변경
+	```
+    compilation_database_folder = os.path.expanduser("~/projects/naver/build")
+    ```
 
 - YCM-Generator 이용해서 .ycm_extra_conf.py 만들기
 YCM-Generator를 github repository로부터 복제
@@ -95,10 +116,3 @@ $ cd YCM-Generator
 $ ./config_gen.py 프로젝트디렉토리
 ```
 위의 프로그램을 수행하면 프로젝트디렉토리의 root에 .ycm_extra_conf.py파일이 생성됨
-
-- Ycmd default_settings.json 파일 설정
-위에서 복제한 ycmd server directory에서 default_settings.json 파일 내용 중 아래 부분 변경
-```
-  "global_ycm_extra_conf": "/home/yshin/projects/프로젝트명/.ycm_extra_conf.py",
-  "hmac_secret": "위의 HMAC key 입력",
-```
